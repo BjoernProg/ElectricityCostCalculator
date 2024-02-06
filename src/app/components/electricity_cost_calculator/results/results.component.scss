@@ -1,0 +1,46 @@
+.background-card-results {
+  background-color: #ffffff;
+  border-radius: 10%;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1%;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  height: 18rem; /* Oder eine ausreichende Höhe für den Container */
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.results-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Hinzugefügt, um sicherzustellen, dass die Höhen der Spalten gleich sind */
+  width: 100%;
+}
+
+.result-section {
+  flex: 1;
+  margin-left: 2rem;
+  text-align: left;
+}
+
+.result-values {
+  flex: 1;
+  text-align: center;
+}
+
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+div.vertical-line {
+  width: 1px; /* Line width */
+  background-color: rgb(192, 188, 188); /* Line color */
+  height: 10rem; /* Override in-line if you want specific height. */
+  float: left;
+  text-align: right;
+}

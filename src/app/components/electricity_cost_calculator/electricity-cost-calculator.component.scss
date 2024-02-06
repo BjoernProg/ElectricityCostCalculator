@@ -1,0 +1,20 @@
+.background-card {
+  /* Css Klasse welche den Hintergrund der Komponente formatier für das "Karten" design */
+  background-color: #ffffff;
+  border-radius: 10%;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 6%;
+  margin-top: 2rem;
+  height: 29rem;
+  width: 23rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.has-error .form-control {
+  /* Der Rand eines Inputfeldes sollte es einen Fehler geben */
+  border-color: red;
+}

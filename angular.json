@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "StromkostenRechner": {
+    "ElectricityCostCalculator": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/stromkosten-rechner",
+            "outputPath": "dist/electricity-cost-calculator",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -39,7 +39,7 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
+                  "maximumWarning": "1mb",
                   "maximumError": "1mb"
                 },
                 {
@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "StromkostenRechner:build:production"
+              "browserTarget": "ElectricityCostCalculator:build:production"
             },
             "development": {
-              "browserTarget": "StromkostenRechner:build:development"
+              "browserTarget": "ElectricityCostCalculator:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "StromkostenRechner:build"
+            "browserTarget": "ElectricityCostCalculator:build"
           }
         },
         "test": {

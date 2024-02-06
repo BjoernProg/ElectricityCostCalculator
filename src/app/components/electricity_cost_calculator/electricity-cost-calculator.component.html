@@ -1,0 +1,166 @@
+<div class="container">
+  <div class="row mb-6">
+    <div class="col-md-6">
+      <form [formGroup]="rechnerForm" (ngSubmit)="onSubmit()">
+        <!-- Macht aus der Datei eine Form welche dazu dient einheitliche Componeten inklusive Validation und Wert übergaben zu erstellen -->
+        <div class="background-card">
+          <div class="row">
+            <div class="col-md-12">
+              <h3 style="text-align: center; margin-bottom: 1rem">
+                Electricity cost calculator
+              </h3>
+              <!-- Überschrift der Componente inklusive Css Formatierungsklassen -->
+
+              <div
+                class="form-floating mb-3"
+                [class.has-error]="
+                  usageInWattInputControl?.invalid &&
+                  usageInWattInputControl?.touched
+                "
+              >
+                <!-- Div um den Watt Verbrauch an zugeben und definiert das label als floating-->
+                <input
+                  type="number"
+                  class="form-control"
+                  id="usageInWattInput"
+                  placeholder="Consumption in watts"
+                  formControlName="usageInWattInput"
+                />
+                <label for="usageInWattInput">Consumption in watts</label>
+                <!-- Das Label welches floating ist also welches angezeigt wird wärend man in dem Textfeld schreibt  -->
+                <div
+                  *ngIf="
+                    usageInWattInputControl?.invalid &&
+                    usageInWattInputControl?.touched
+                  "
+                  class="text-danger"
+                >
+                  <!-- Abfrage sollte das invalid sein also sollte man es angeklickt haben ohne was hinein zu schreiben wird ein das Feld Rot makiert und eine Fehlermeldung erscheint -->
+                  <span *ngIf="usageInWattInputControl?.errors?.['required']"
+                    >This field is required</span
+                  >
+                </div>
+              </div>
+              <div
+                class="form-floating mb-3"
+                [class.has-error]="
+                  operatingHoursPerDayInputControl?.invalid &&
+                  operatingHoursPerDayInputControl?.touched
+                "
+              >
+                <!-- Der gleiche Aufbau wie beim 'usageInWattInput' Inputfeld-->
+                <input
+                  type="number"
+                  class="form-control"
+                  id="operatingHoursPerDayInput"
+                  placeholder="Operating hours per day"
+                  formControlName="operatingHoursPerDayInput"
+                />
+                <label for="operatingHoursPerDayInputControl"
+                  >Operating hours per day</label
+                >
+                <div
+                  *ngIf="
+                    operatingHoursPerDayInputControl?.invalid &&
+                    operatingHoursPerDayInputControl?.touched
+                  "
+                  class="text-danger"
+                >
+                  <span
+                    *ngIf="operatingHoursPerDayInputControl?.errors?.['required']"
+                    >This field is required</span
+                  >
+                </div>
+              </div>
+              <div
+                class="form-floating mb-3"
+                [class.has-error]="
+                  electricityCostPerKWHControl?.invalid &&
+                  electricityCostPerKWHControl?.touched
+                "
+              >
+                <!-- Der gleiche Aufbau wie beim 'usageInWattInput' Inputfeld-->
+                <input
+                  type="text"
+                  class="form-control"
+                  id="electricityCostPerKWHInput"
+                  placeholder="Electricity price per kWh"
+                  formControlName="electricityCostPerKWHInput"
+                />
+                <label for="electricityCostPerKWHInput"
+                  >Electricity price per kWh</label
+                >
+                <div
+                  *ngIf="
+                    electricityCostPerKWHControl?.invalid &&
+                    electricityCostPerKWHControl?.touched
+                  "
+                  class="text-danger"
+                >
+                  <span
+                    *ngIf="electricityCostPerKWHControl?.errors?.['required']"
+                    >This field is required</span
+                  >
+                  <!-- Ein Extra error welcher auftaucht sollten Buchstaben oder ein Komma verwendet werden-->
+                  <span
+                    *ngIf="electricityCostPerKWHControl?.errors?.['pattern']"
+                    >Numbers only, use a dot for decimal points</span
+                  >
+                </div>
+              </div>
+              <!-- Ein Select oder auch Dropdown welcher durch das Array weekdays iteriert um alle 7 Tage der Woche abzubilden-->
+
+              <div class="col-md">
+                <div class="form-floating">
+                  <select
+                    class="form-select"
+                    id="operatingDaysOfWeekSelect"
+                    formControlName="operatingDaysOfWeekSelect"
+                  >
+                    <option *ngFor="let day of weekdays" [value]="day">
+                      {{ day }}
+                    </option>
+                  </select>
+                  <label for="operatingDaysOfWeekSelect"
+                    >Operating days / week</label
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 mt-3">
+              <div class="d-flex justify-content-between">
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  [disabled]="!rechnerForm.valid"
+                  style="margin-left: 1rem"
+                >
+                  <!-- Knopf um das Form zu 'submitten' also zu bestätigen. Ist deaktiviert wenn nicht alle Felder korrekt ausgefüllt sind -->
+
+                  GO!
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-warning"
+                  (click)="onResetAllCards()"
+                >
+                  <!-- Knopf welcher alle Komponenten über die onResetAllCards Methode zurücksetzt -->
+                  Reset All
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-info"
+                  (click)="onAddCard()"
+                  style="margin-right: 1rem"
+                  *ngIf="moreExtra"
+                ><!-- Knopf über welchen eine Extra Komponente hinzugefügt werden kann durch die onAddCard Methode-->
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

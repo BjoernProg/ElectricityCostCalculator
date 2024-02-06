@@ -1,0 +1,17 @@
+.header-container {
+  /* Klasse welche für den hintergund und allgemeine Formatierung des Headers da ist */
+  background-color: #1d7d74; /* Hintergrundfarbe */
+  color: rgb(253, 251, 251); /* Textfarbe */
+  padding: 0.3rem; /* Abstand zu den Objecten */
+  display: flex; /* Bestimmt die Position der felder in denen Objekte angezeigt werden*/
+  align-items: center; /* Zentriet alle Objekte in der Klasse*/
+  text-align: center; /* Zentriet allen Text in der Klasse*/
+}
+
+.header-text {
+  flex-grow: 1; /* Bestimmt extra Platz des Textes */
+}
+
+.header-image {
+  max-width: 80px; /* Maximale Breite des Bildes, */
+}
